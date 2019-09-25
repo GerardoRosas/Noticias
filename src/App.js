@@ -12,9 +12,9 @@ class App extends Component {
     this.consultarNoticias();
   }
 
-  consultarNoticias = async () => {
+  consultarNoticias = async (categoria = 'general') => {
     const url = `https://newsapi.org/v2/top-headlines?country=mx&
-    category=business&apiKey=09da4de6a9a049378b3094819af696a4`;
+    category={categoria}&apiKey=09da4de6a9a049378b3094819af696a4`;
 
     const respuesta = await fetch(url);
     const noticias = await respuesta.json();
@@ -32,7 +32,7 @@ class App extends Component {
 
         <div className="container white contenedor-noticias">
           <Formulario 
-          
+            consultarNoticias = {this.consultarNoticias}
           />
 
           <ListaNoticias 

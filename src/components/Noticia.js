@@ -6,11 +6,11 @@ const Noticia = ({noticia}) => {
     const { urlToImage, url, title, description, source } = noticia;
 
     //Condicionalmente cargar la imagen si esta disponible
-    const imagen = {urlToImage} ? 
-    <div className="card-image">
-        <img src={urlToImage} alt={title} />
-        <span className="card-title">{source.name}</span>
-    </div>
+    const imagen = (urlToImage) ? 
+        <div className="card-image">
+            <img src={urlToImage} alt={title} />
+            <span className="card-title">{source.name}</span>
+        </div>
     : null;
 
     return ( 
@@ -18,7 +18,7 @@ const Noticia = ({noticia}) => {
             <div  className="card">
                 {imagen}
                 
-                <div className="cardo-content">
+                <div className="card-content">
                     <h3>{title}</h3>
                     <p>{description}</p>
                 </div>
